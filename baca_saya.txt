@@ -1,0 +1,81 @@
+======================================================================
+              DOKUMENTASI & PETUNJUK PENGGUNAAN UNDANGAN DIGITAL
+======================================================================
+
+Terima kasih telah membeli source code template Undangan Pernikahan Digital ini.
+Dokumen ini akan memandu Anda langkah demi langkah untuk melakukan kustomisasi 
+dan menjalankan website ini.
+
+----------------------------------------------------------------------
+1. STRUKTUR FILE
+----------------------------------------------------------------------
+Pastikan semua file diletakkan dalam satu folder yang sama:
+├── index.html               <-- File utama website (Kode HTML, CSS, JS)
+├── La Maritza (Piano Cover) - Sylvie Vartan.mp3      <-- File lagu latar belakang (audio MP3)
+└── baca_saya.txt            <-- File petunjuk ini
+
+----------------------------------------------------------------------
+2. CARA EDIT DATA UNDANGAN (KUSTOMISASI)
+----------------------------------------------------------------------
+Untuk mengubah nama, tanggal, lokasi, dan musik, buka file `index.html` 
+menggunakan aplikasi Text Editor (seperti Notepad, VS Code, atau Sublime Text):
+
+a. Mengubah Nama Pengantin:
+   - Cari teks "Nama 1 & Nama 2" atau "Nama Mempelai" di dalam file.
+   - Ganti dengan nama pengantin pria dan wanita yang diinginkan.
+
+b. Mengubah Tanggal Acara & Countdown:
+   - Untuk teks tampilan, ganti tanggal pada baris: <p>12 . 12 . 2026</p>
+   - Untuk menghidupkan Countdown Timer, cari kode JavaScript berikut di bagian bawah:
+     `const weddingDate = new Date("Dec 12, 2026 09:00:00").getTime();`
+     Ubah tanggal di dalam tanda kurung sesuai tanggal pernikahan yang baru.
+
+c. Mengubah Lagu Latar (Music Backsound):
+   - Simpan file lagu MP3 Anda di folder yang sama.
+   - Cari baris kode berikut:
+     `<source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg" />`
+   - Ganti bagian `src` menjadi nama file lagu Anda, contoh:
+     `<source src="La Maritza (Piano Cover) - Sylvie Vartan.mp3" type="audio/mpeg" />`
+
+d. Mengubah Link Denah Google Maps:
+   - Cari bagian `<iframe src="...` pada bagian `<section id="location">`.
+   - Ganti dengan link embed dari Google Maps lokasi baru Anda.
+   - Ganti juga link pada tombol `<a href="..."` agar mengarah ke navigasi Google Maps.
+
+----------------------------------------------------------------------
+3. CARA MENCOBA / MENJALANKAN DI KOMPUTER (LOKAL)
+----------------------------------------------------------------------
+1. Klik dua kali (double-click) pada file `index.html`.
+2. File akan otomatis terbuka di browser Anda (Chrome, Edge, atau Safari).
+3. Klik tombol musik di pojok kanan bawah untuk menguji lagu latar belakang.
+
+*Catatan: Browser modern terkadang memblokir musik otomatis berputar (autoplay) 
+sebelum pengguna berinteraksi atau menekan tombol play musik demi kenyamanan pengguna.
+
+----------------------------------------------------------------------
+4. CARA DEPLOY / ONLINE-KAN KE INTERNET
+----------------------------------------------------------------------
+Jika Anda ingin website ini dapat diakses oleh semua orang melalui internet, 
+Anda bisa mengunggahnya secara GRATIS menggunakan layanan berikut:
+
+Opsi A: Menggunakan Netlify (Sangat Mudah & Gratis)
+1. Buka situs https://www.netlify.com/ dan buat akun gratis.
+2. Masuk ke Dashboard, lalu pilih menu "Deploy manually".
+3. Seret (drag & drop) folder berisi file `index.html` dan `La Maritza (Piano Cover) - Sylvie Vartan.mp3` ke kotak upload.
+4. Tunggu beberapa detik, website Anda sudah online dan Anda akan mendapatkan link website gratis!
+
+Opsi B: Menggunakan GitHub Pages
+1. Buat repositori baru di GitHub Anda.
+2. Unggah file `index.html` dan `La Maritza (Piano Cover) - Sylvie Vartan.mp3`.
+3. Masuk ke menu Settings > Pages, lalu aktifkan GitHub Pages pada branch "main/master".
+
+----------------------------------------------------------------------
+SUPPORT & KONTAK
+----------------------------------------------------------------------
+Jika Anda mengalami kendala atau membutuhkan bantuan teknis lebih lanjut,
+silakan hubungi pengembang di:
+
+Email : kedaikoding27@gmail.com
+
+Selamat menggunakan dan semoga acara pernikahan berjalan lancar!
+======================================================================

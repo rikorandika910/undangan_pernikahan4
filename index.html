@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Undangan Pernikahan - Justin & Sisca</title>
+    <title>Undangan Pernikahan - Riko & Rara</title>
 
     <!-- Google Fonts & FontAwesome Icons -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -16,37 +16,50 @@
     />
 
     <style>
+      :root {
+        --matcha-dark: #2a3d20;
+        --matcha-deep: #415830;
+        --matcha-primary: #597445;
+        --matcha-soft: #859f6e;
+        --matcha-light: #b9caa8;
+        --matcha-foam: #eef2e6;
+        --cream-bg: #f7f9f2;
+        --pure-white: #ffffff;
+        --gold-matcha: #cbb279;
+        --text-dark: #23311c;
+        --text-subtle: #576850;
+      }
+
       /* Reset & General Styles */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        scroll-behavior: smooth;
       }
       body {
         font-family: "Playfair Display", serif;
-        background-color: #fafbfc;
-        color: #2c3e35;
+        background-color: var(--cream-bg);
+        color: var(--text-dark);
         line-height: 1.8;
         text-align: center;
         overflow-x: hidden;
       }
 
-      /* SPLASH GATE / ENVELOPE (Buka Sampul) */
+      /* SPLASH GATE / ENVELOPE (Buka Sampul Bertema Matcha) */
       .envelope-gate {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-        background-color: #ffffff;
+        background: radial-gradient(circle at 50% 30%, #ffffff 0%, var(--matcha-foam) 100%);
         z-index: 10000;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 20px;
-        transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s;
+        transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
       }
       .envelope-gate.fade-out {
         transform: translateY(-100%);
@@ -54,153 +67,182 @@
         pointer-events: none;
       }
 
-      /* Gold & Botanical Wreath Frame */
+      /* Matcha Botanical Wreath Frame */
       .wreath-frame {
         position: relative;
         width: 290px;
         height: 290px;
         border-radius: 50%;
-        border: 2px solid #d4af37; /* Gold Line Ring */
+        border: 2px solid var(--gold-matcha);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 40px;
-        background: radial-gradient(circle, rgba(212,175,55,0.03) 0%, rgba(255,255,255,1) 70%);
+        margin-bottom: 35px;
+        background: radial-gradient(circle, rgba(133, 159, 110, 0.08) 0%, rgba(255, 255, 255, 0.95) 75%);
+        box-shadow: 0 10px 30px rgba(65, 88, 48, 0.1);
       }
       .wreath-frame::before {
         content: "";
         position: absolute;
-        top: -15px;
-        left: -15px;
-        right: -15px;
-        bottom: -15px;
-        border: 1px dashed rgba(44, 62, 53, 0.15);
+        top: -14px;
+        left: -14px;
+        right: -14px;
+        bottom: -14px;
+        border: 1.5px dashed rgba(89, 116, 69, 0.35);
         border-radius: 50%;
       }
       .wreath-frame i.leaf-accent {
         position: absolute;
-        color: #8fa89b; /* Sage Green */
+        color: var(--matcha-primary);
         font-size: 1.8rem;
       }
-      .leaf-top { top: -10px; left: 50%; transform: translateX(-50%) rotate(0deg); }
-      .leaf-bottom { bottom: -10px; left: 50%; transform: translateX(-50%) rotate(180deg); }
+      .leaf-top { top: -12px; left: 50%; transform: translateX(-50%); }
+      .leaf-bottom { bottom: -12px; left: 50%; transform: translateX(-50%) rotate(180deg); }
 
       .wreath-frame h2 {
         font-family: "Alex Brush", cursive;
         font-size: 3.8rem;
-        color: #2c3e35;
+        color: var(--matcha-dark);
         font-weight: normal;
-        line-height: 1;
+        line-height: 1.1;
       }
 
       /* Guest Card Info */
       .guest-card {
-        margin-bottom: 40px;
+        margin-bottom: 35px;
         text-align: center;
       }
       .guest-card p {
         font-family: "Montserrat", sans-serif;
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         text-transform: uppercase;
         letter-spacing: 3px;
-        color: #8fa89b;
+        color: var(--matcha-primary);
         margin-bottom: 8px;
+        font-weight: 600;
       }
       .guest-card h4 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         font-weight: 600;
-        color: #2c3e35;
-        border-bottom: 1px solid rgba(214,175,55,0.4);
+        color: var(--matcha-dark);
+        border-bottom: 1.5px solid var(--gold-matcha);
         display: inline-block;
         padding-bottom: 5px;
-        min-width: 180px;
+        min-width: 200px;
       }
 
-      /* Elegant Gold Button */
+      /* Elegant Matcha Button */
       .btn-elegant {
-        background-color: #2c3e35;
+        background-color: var(--matcha-primary);
         color: #ffffff;
-        border: 1px solid #d4af37;
+        border: 1px solid var(--gold-matcha);
         padding: 14px 38px;
         font-family: "Montserrat", sans-serif;
         font-size: 0.8rem;
-        font-weight: 500;
+        font-weight: 600;
         letter-spacing: 2px;
         text-transform: uppercase;
-        border-radius: 2px;
+        border-radius: 50px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.35s ease;
+        box-shadow: 0 6px 20px rgba(89, 116, 69, 0.25);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
       }
       .btn-elegant:hover {
-        background-color: #ffffff;
-        color: #2c3e35;
-        box-shadow: 0 8px 20px rgba(44, 62, 53, 0.1);
+        background-color: var(--matcha-dark);
+        color: #ffffff;
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(42, 61, 32, 0.35);
       }
 
-      /* Hero Cover */
+      /* ========================================================
+         HERO SECTION
+         ======================================================== */
       .hero {
-        background: #ffffff;
-        height: 100vh;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, var(--matcha-foam) 100%);
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 20px;
-        border-bottom: 8px solid #8fa89b;
+        padding: 40px 20px;
+        border-bottom: 5px solid var(--matcha-primary);
       }
 
-      /* Quran / Holy Blessing Text Block */
+      /* ========================================================
+         ANIMASI SLIDE MASUK CANTIK & LEMBUT (SMOOTH REVEAL)
+         ======================================================== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px) scale(0.97);
+        filter: blur(6px);
+        transition: 
+          opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+          filter 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform, filter;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+
+      /* Blessing Verse Block */
       .blessing-verse {
-        padding: 100px 20px;
-        max-width: 700px;
+        padding: 90px 20px;
+        max-width: 720px;
         margin: 0 auto;
-        background-color: #ffffff;
       }
       .blessing-verse p.scripture-text {
-        font-size: 1rem;
+        font-size: 1.05rem;
         font-style: italic;
-        color: #556b60;
+        color: var(--text-subtle);
         line-height: 2;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
       }
       .blessing-verse p.scripture-source {
         font-family: "Montserrat", sans-serif;
         font-size: 0.8rem;
-        font-weight: 600;
+        font-weight: 700;
         letter-spacing: 2px;
-        color: #d4af37;
+        color: var(--matcha-primary);
         text-transform: uppercase;
       }
 
       /* Sections General */
       section {
-        padding: 120px 20px;
-        max-width: 850px;
+        padding: 100px 20px;
+        max-width: 860px;
         margin: 0 auto;
       }
       h2.section-title {
         font-family: "Alex Brush", cursive;
-        font-size: 4.5rem;
-        color: #d4af37;
-        margin-bottom: 10px;
+        font-size: 4.8rem;
+        color: var(--matcha-primary);
+        margin-bottom: 5px;
         font-weight: normal;
+        line-height: 1.1;
       }
       .sub-title {
         font-family: "Montserrat", sans-serif;
         font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 4px;
-        margin-bottom: 60px;
-        color: #8fa89b;
+        margin-bottom: 50px;
+        color: var(--matcha-soft);
+        font-weight: 600;
       }
 
       /* Groom & Bride Clean Cards */
       .profile-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 50px;
-        margin-top: 40px;
+        gap: 30px;
+        margin-top: 30px;
       }
       @media (min-width: 768px) {
         .profile-wrapper {
@@ -209,75 +251,131 @@
       }
       .profile-card {
         flex: 1;
-        padding: 40px 20px;
+        padding: 45px 30px;
         background: #ffffff;
-        border: 1px solid rgba(143, 168, 155, 0.2);
-        box-shadow: 0 5px 20px rgba(0,0,0,0.01);
-        border-radius: 4px;
+        border: 1px solid rgba(89, 116, 69, 0.2);
+        box-shadow: 0 12px 35px rgba(65, 88, 48, 0.06);
+        border-radius: 24px;
+        position: relative;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .profile-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 45px rgba(65, 88, 48, 0.12);
+      }
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--matcha-light), var(--matcha-primary));
+        border-radius: 24px 24px 0 0;
+      }
+      .profile-icon {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        background: var(--matcha-foam);
+        color: var(--matcha-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 0 auto 18px;
+        border: 2px solid var(--matcha-light);
+        box-shadow: 0 6px 18px rgba(89, 116, 69, 0.15);
       }
       .profile-card h3 {
-        font-size: 1.8rem;
-        color: #2c3e35;
-        margin-bottom: 15px;
+        font-size: 1.7rem;
+        color: var(--matcha-dark);
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .profile-card a.ig-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.8rem;
+        color: var(--matcha-primary);
+        font-weight: 600;
+        text-decoration: none;
+        padding: 4px 14px;
+        background: var(--matcha-foam);
+        border-radius: 20px;
+        margin-bottom: 14px;
+        transition: all 0.3s;
+      }
+      .profile-card a.ig-link:hover {
+        background: var(--matcha-primary);
+        color: #ffffff;
       }
       .profile-card p {
-        font-size: 1.05rem;
-        color: #556b60;
+        font-size: 0.95rem;
+        color: var(--text-subtle);
+        line-height: 1.6;
       }
 
       /* Event Timeline */
       .timeline-box {
         background-color: #ffffff;
-        border: 1px solid rgba(143, 168, 155, 0.25);
-        border-radius: 4px;
-        padding: 40px;
-        margin-bottom: 30px;
+        border: 1px solid rgba(89, 116, 69, 0.2);
+        border-radius: 20px;
+        padding: 35px 30px;
+        margin-bottom: 25px;
         text-align: left;
         position: relative;
         overflow: hidden;
+        box-shadow: 0 10px 30px rgba(65, 88, 48, 0.05);
+        transition: transform 0.3s;
+      }
+      .timeline-box:hover {
+        transform: translateY(-4px);
       }
       .timeline-box::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        width: 4px;
+        width: 5px;
         height: 100%;
-        background-color: #d4af37;
+        background-color: var(--matcha-primary);
       }
       .timeline-box h4 {
         font-size: 1.5rem;
-        color: #2c3e35;
-        margin-bottom: 15px;
+        color: var(--matcha-dark);
+        margin-bottom: 12px;
       }
       .timeline-box p {
         font-family: "Montserrat", sans-serif;
         font-size: 0.9rem;
-        color: #556b60;
-        margin-bottom: 5px;
+        color: var(--text-subtle);
+        margin-bottom: 6px;
       }
 
       /* MAP SECTION */
       .map-card {
         background: #ffffff;
-        border: 1px solid rgba(143, 168, 155, 0.2);
-        border-radius: 4px;
-        padding: 30px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.02);
+        border: 1px solid rgba(89, 116, 69, 0.2);
+        border-radius: 24px;
+        padding: 25px;
+        box-shadow: 0 10px 35px rgba(65, 88, 48, 0.06);
       }
       .map-frame {
         width: 100%;
         height: 380px;
         border: none;
-        border-radius: 2px;
-        margin-bottom: 25px;
+        border-radius: 16px;
+        margin-bottom: 22px;
       }
 
       /* WEDDING GIFT / DIGITAL ENVELOPE */
       .gift-container {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
       }
       @media (min-width: 768px) {
         .gift-container {
@@ -287,22 +385,25 @@
       .account-card {
         flex: 1;
         background: #ffffff;
-        padding: 30px;
-        border-radius: 4px;
-        border: 1px solid rgba(143, 168, 155, 0.2);
+        padding: 32px 25px;
+        border-radius: 20px;
+        border: 1px solid rgba(89, 116, 69, 0.2);
+        box-shadow: 0 10px 30px rgba(65, 88, 48, 0.05);
       }
       .account-card h5 {
         font-family: "Montserrat", sans-serif;
-        font-size: 0.9rem;
-        color: #8fa89b;
+        font-size: 0.85rem;
+        color: var(--matcha-primary);
         letter-spacing: 2px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         text-transform: uppercase;
+        font-weight: 700;
       }
       .account-card p {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #2c3e35;
+        font-family: monospace;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--matcha-dark);
         margin-bottom: 15px;
         letter-spacing: 1px;
       }
@@ -310,101 +411,114 @@
       /* RSVP & INTERACTIVE GUESTBOOK */
       .rsvp-wrapper {
         background-color: #ffffff;
-        border: 1px solid rgba(143, 168, 155, 0.2);
-        padding: 40px;
-        border-radius: 4px;
+        border: 1px solid rgba(89, 116, 69, 0.2);
+        padding: 40px 30px;
+        border-radius: 24px;
+        box-shadow: 0 10px 35px rgba(65, 88, 48, 0.06);
       }
-      .rsvp-wrapper input, .rsvp-wrapper select, .rsvp-wrapper textarea {
+      .rsvp-wrapper input,
+      .rsvp-wrapper select,
+      .rsvp-wrapper textarea {
         width: 100%;
-        padding: 14px;
-        border-radius: 2px;
-        border: 1px solid #d8e0db;
+        padding: 14px 18px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(89, 116, 69, 0.25);
         font-family: inherit;
-        font-size: 1.05rem;
-        background-color: #fafbfc;
-        margin-bottom: 20px;
+        font-size: 0.95rem;
+        background-color: var(--cream-bg);
+        margin-bottom: 18px;
         outline: none;
+        color: var(--text-dark);
+        transition: border 0.3s;
       }
-      .rsvp-wrapper input:focus, .rsvp-wrapper select:focus, .rsvp-wrapper textarea:focus {
-        border-color: #d4af37;
+      .rsvp-wrapper input:focus,
+      .rsvp-wrapper select:focus,
+      .rsvp-wrapper textarea:focus {
+        border-color: var(--matcha-primary);
+        background: #ffffff;
       }
 
       /* Dynamic Wishing Wall */
       .wishing-wall {
-        background: #fafbfc;
-        border-radius: 4px;
-        border: 1px solid rgba(143, 168, 155, 0.2);
-        padding: 25px;
-        max-height: 400px;
+        background: var(--matcha-foam);
+        border-radius: 18px;
+        border: 1px solid rgba(89, 116, 69, 0.15);
+        padding: 24px;
+        max-height: 380px;
         overflow-y: auto;
-        margin-top: 40px;
+        margin-top: 35px;
         text-align: left;
       }
       .wish-box {
         background: white;
-        padding: 20px;
-        border-radius: 2px;
-        border: 1px solid rgba(143, 168, 155, 0.15);
-        margin-bottom: 15px;
+        padding: 18px 20px;
+        border-radius: 14px;
+        border: 1px solid rgba(89, 116, 69, 0.15);
+        margin-bottom: 14px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
       }
       .wish-box h6 {
         font-family: "Montserrat", sans-serif;
         font-size: 0.85rem;
-        font-weight: 600;
-        color: #2c3e35;
+        font-weight: 700;
+        color: var(--matcha-dark);
       }
       .wish-box p {
-        font-size: 1.05rem;
-        color: #556b60;
-        margin-top: 5px;
+        font-size: 0.95rem;
+        color: var(--text-subtle);
+        margin-top: 4px;
       }
 
       /* Audio Control Floating Button */
       .music-controller {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 25px;
+        right: 25px;
         z-index: 999;
       }
       .music-btn {
-        background-color: #ffffff;
-        color: #2c3e35;
-        border: 1px solid #d4af37;
-        width: 50px;
-        height: 50px;
+        background-color: var(--matcha-primary);
+        color: #ffffff;
+        border: 2px solid var(--cream-bg);
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.1rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        font-size: 1.25rem;
+        box-shadow: 0 6px 20px rgba(42, 61, 32, 0.3);
+        transition: transform 0.3s ease;
+      }
+      .music-btn:hover {
+        transform: scale(1.1);
       }
 
       /* Footer */
       footer {
-        background-color: #2c3e35;
-        color: #ffffff;
+        background-color: var(--matcha-dark);
+        color: var(--matcha-foam);
         padding: 60px 20px;
-        font-size: 0.95rem;
-        border-top: 4px solid #d4af37;
+        font-size: 0.9rem;
+        border-top: 4px solid var(--matcha-primary);
       }
       footer h5 {
         font-family: "Alex Brush", cursive;
-        font-size: 2.8rem;
-        color: #d4af37;
+        font-size: 3.5rem;
+        color: var(--matcha-light);
         font-weight: normal;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
     </style>
   </head>
   <body>
 
-    <!-- Buka Sampul (Splash Gate Overlay) -->
+    <!-- Buka Sampul (Splash Gate Overlay Tema Matcha) -->
     <div id="envelopeGate" class="envelope-gate">
       <div class="wreath-frame">
         <i class="fa-solid fa-leaf leaf-accent leaf-top"></i>
-        <h2>Justin<br>&amp;<br>Sisca</h2>
+        <h2>Riko<br>&amp;<br>Rara</h2>
         <i class="fa-solid fa-leaf leaf-accent leaf-bottom"></i>
       </div>
       <div class="guest-card">
@@ -412,7 +526,7 @@
         <h4 id="targetGuest">Tamu Kehormatan</h4>
       </div>
       <button class="btn-elegant" onclick="unlockEnvelope()">
-        <i class="fa-regular fa-envelope-open"></i> Buka Sampul
+        <i class="fa-regular fa-envelope-open"></i> Buka Undangan
       </button>
     </div>
 
@@ -428,95 +542,119 @@
 
     <!-- Hero Section -->
     <header class="hero">
-      <div class="wreath-frame" style="transform: scale(0.9); margin-bottom: 20px;">
+      <div class="wreath-frame" style="transform: scale(0.9); margin-bottom: 10px;">
         <i class="fa-solid fa-leaf leaf-accent leaf-top"></i>
-        <h2>J &amp; S</h2>
+        <h2>R &amp; R</h2>
         <i class="fa-solid fa-leaf leaf-accent leaf-bottom"></i>
       </div>
-      <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 5px; color: #8fa89b; margin-top: 15px;">
-        THE WEDDING OF JUSTIN &amp; SISCA
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 5px; color: var(--matcha-primary); margin-top: 15px; font-weight: 700;">
+        THE WEDDING OF RIKO &amp; SYEIRACH
       </p>
-      <p style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 3px; color: #2c3e35; margin-top: 10px;">
-        12 DESEMBER 2026
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: var(--matcha-dark); margin-top: 8px;">
+        SABTU, 12 DESEMBER 2026
       </p>
     </header>
 
     <!-- Blessing Verse Section -->
-    <section class="blessing-verse">
+    <section class="blessing-verse reveal">
       <p class="scripture-text">
         "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
       </p>
-      <p class="scripture-source">QS. Ar-Rum Verse 21</p>
+      <p class="scripture-source">QS. Ar-Rum Ayat 21</p>
     </section>
 
     <!-- Mempelai Section -->
-    <section id="mempelai">
+    <section id="mempelai" class="reveal">
       <h2 class="section-title">Mempelai</h2>
-      <p class="sub-title">Dengan memohon ridho Tuhan yang Maha Esa</p>
+      <p class="sub-title">Dengan Memohon Ridho Allah SWT</p>
 
       <div class="profile-wrapper">
+        <!-- Riko Randika -->
         <div class="profile-card">
-          <h3>Justin Aditama, S.T.</h3>
-          <p>Putra tercinta dari Bapak Hardi Aditama &amp; Ibu Elina Aditama</p>
+          <div class="profile-icon">
+            <i class="fa-solid fa-ring"></i>
+          </div>
+          <h3>Riko Randika, S.Kom.</h3>
+          <a href="https://instagram.com/rannxyzs" target="_blank" class="ig-link">
+            <i class="fa-brands fa-instagram"></i> @rannxyzs
+          </a>
+          <p>
+            Putra Tercinta dari Pasangan:<br />
+            <strong>Bapak Aji &amp; Mamak Tik</strong>
+          </p>
         </div>
+
+        <!-- Syeirach Aulia -->
         <div class="profile-card">
-          <h3>Sisca Natalia, S.Kom.</h3>
-          <p>Putri tercinta dari Bapak Roy Natalia &amp; Ibu Cindy Natalia</p>
+          <div class="profile-icon">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <h3>Syeirach Aulia, S.Kom.</h3>
+          <a href="https://instagram.com/08c.dump1e" target="_blank" class="ig-link">
+            <i class="fa-brands fa-instagram"></i> @08c.dump1e
+          </a>
+          <p>
+            Putri Tercinta dari Pasangan:<br />
+            <strong>Bapak Eri &amp; Mamak Ita</strong>
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Susunan Acara -->
-    <section id="acara" style="background-color: #fafbfc;">
-      <h2 class="section-title">Acara Pernikahan</h2>
-      <p class="sub-title">Pelaksanaan Rangkaian Hari Bahagia</p>
+    <section id="acara" class="reveal">
+      <h2 class="section-title">Rangkaian Acara</h2>
+      <p class="sub-title">Pelaksanaan Hari Bahagia Kami</p>
 
       <div class="timeline-box">
-        <h4>Pemberkatan Suci</h4>
-        <p><strong>Pukul:</strong> 10:00 WIB - Selesai</p>
-        <p><strong>Tempat:</strong> Gereja Katedral Indah, Jakarta Pusat</p>
+        <h4>Akad Nikah</h4>
+        <p><strong><i class="fa-regular fa-clock"></i> Pukul:</strong> 08:00 WIB - Selesai</p>
+        <p><strong><i class="fa-solid fa-location-dot"></i> Tempat:</strong> Masjid Al Fatih - Al-Qur'an Islamic Center</p>
+        <p style="font-size: 0.85rem; color: #7a8a73;">Jl. Lintas Medan - Banda Aceh No.495, Tunggurono, Binjai Timur</p>
       </div>
 
       <div class="timeline-box">
         <h4>Resepsi Pernikahan</h4>
-        <p><strong>Pukul:</strong> 12:00 WIB - 15:00 WIB</p>
-        <p><strong>Tempat:</strong> Grand Flora ballroom, Jakarta Pusat</p>
+        <p><strong><i class="fa-regular fa-clock"></i> Pukul:</strong> 11:00 WIB - 14:00 WIB</p>
+        <p><strong><i class="fa-solid fa-location-dot"></i> Tempat:</strong> Gedung Serba Guna Pemprovsu</p>
+        <p style="font-size: 0.85rem; color: #7a8a73;">Jl. Williem Iskandar No.9, Kenangan Baru, Kec. Percut Sei Tuan, Deli Serdang</p>
       </div>
     </section>
 
-    <!-- Google Maps Denah Lokasi (Wajib) -->
-    <section id="lokasi">
-      <h2 class="section-title">Denah Lokasi</h2>
-      <p class="sub-title">Memandu Langkah Anda Menuju Ruang Acara Kami</p>
+    <!-- Google Maps Denah Lokasi -->
+    <section id="lokasi" class="reveal">
+      <h2 class="section-title">Lokasi Acara</h2>
+      <p class="sub-title">Panduan Rute Menuju Tempat Resepsi Pernikahan</p>
 
       <div class="map-card">
         <iframe 
           class="map-frame" 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466144368!2d106.82496417585802!3d-6.175392393811818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2db242733%3A0x48e42f9e4e68e4c!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid">
+          src="https://maps.google.com/maps?q=Gedung%20Serba%20Guna%20Pemprovsu%2C%20Jl.%20Williem%20Iskandar%20No.9%2C%20Kenangan%20Baru%2C%20Kec.%20Percut%20Sei%20Tuan%2C%20Kabupaten%20Deli%20Serdang%2C%20Sumatera%20Utara%2020371&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy">
         </iframe>
-        <button class="btn-elegant" onclick="window.open('https://maps.app.goo.gl/uX3f59oE66bSDoF4A', '_blank')">
-          <i class="fa-solid fa-location-arrow"></i> Petunjuk Rute Navigasi
+        <button class="btn-elegant" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Gedung+Serba+Guna+Pemprovsu+Jl+Williem+Iskandar+No+9+Deli+Serdang', '_blank')">
+          <i class="fa-solid fa-location-arrow"></i> Buka di Google Maps
         </button>
       </div>
     </section>
 
     <!-- Digital Envelope -->
-    <section id="hadiah" style="background-color: #fafbfc;">
+    <section id="hadiah" class="reveal">
       <h2 class="section-title">Tanda Kasih</h2>
-      <p class="sub-title">Kirimkan kado pernikahan digital secara praktis</p>
+      <p class="sub-title">Kirimkan Kado Pernikahan Digital Secara Praktis</p>
 
       <div class="gift-container">
         <div class="account-card">
           <h5>Bank BCA</h5>
           <p id="rekening1">123-456-7890</p>
-          <button class="btn-elegant" style="font-size: 0.7rem; padding: 8px 20px;" onclick="salinNomor('rekening1')">
+          <button class="btn-elegant" style="font-size: 0.72rem; padding: 10px 22px;" onclick="salinNomor('rekening1')">
             Salin Nomor Rekening
           </button>
         </div>
         <div class="account-card">
           <h5>Bank Mandiri</h5>
           <p id="rekening2">987-654-3210</p>
-          <button class="btn-elegant" style="font-size: 0.7rem; padding: 8px 20px;" onclick="salinNomor('rekening2')">
+          <button class="btn-elegant" style="font-size: 0.72rem; padding: 10px 22px;" onclick="salinNomor('rekening2')">
             Salin Nomor Rekening
           </button>
         </div>
@@ -524,18 +662,18 @@
     </section>
 
     <!-- RSVP & Live Wishing Wall -->
-    <section id="rsvp">
-      <h2 class="section-title">Doa Restu</h2>
-      <p class="sub-title">Konfirmasikan kehadiran dan kirim doa Anda</p>
+    <section id="rsvp" class="reveal">
+      <h2 class="section-title">Doa & Restu</h2>
+      <p class="sub-title">Konfirmasikan Kehadiran & Sampaikan Doa Terbaik Anda</p>
 
       <div class="rsvp-wrapper">
         <form id="rsvpForm">
-          <input type="text" id="nameInput" required placeholder="Tulis Nama Anda" />
+          <input type="text" id="nameInput" required placeholder="Tuliskan Nama Lengkap Anda" />
           <select id="attendanceSelect">
             <option value="Hadir">Saya akan Hadir</option>
-            <option value="Tidak Hadir">Mohon maaf, Saya Berhalangan</option>
+            <option value="Tidak Hadir">Mohon Maaf, Berhalangan Hadir</option>
           </select>
-          <textarea id="wishText" rows="4" required placeholder="Tulis ucapan serta doa terbaik Anda..."></textarea>
+          <textarea id="wishText" rows="4" required placeholder="Tuliskan ucapan serta doa restu terbaik Anda..."></textarea>
           <button type="submit" class="btn-elegant" style="width: 100%;">
             Kirim Konfirmasi &amp; Doa
           </button>
@@ -545,11 +683,11 @@
         <div class="wishing-wall" id="wishWall">
           <div class="wish-box">
             <h6>Andika Pradana</h6>
-            <p>Selamat untuk Justin dan Sisca! Sangat senang melihat kalian akhirnya menapak ke pelaminan. Semoga pernikahan kalian dipenuhi berkah dan tawa!</p>
+            <p>Selamat untuk Riko dan Rara! Sangat bahagia melihat kalian bersanding ke pelaminan. Semoga rumah tangganya selalu berkah, rukun, dan sakinah mawaddah warahmah amin!</p>
           </div>
           <div class="wish-box">
             <h6>Rissa Amalia</h6>
-            <p>Happy wedding! Lancar-lancar ya acaranya dari akad sampai resepsi nanti. Semoga selalu bahagia lahir batin!</p>
+            <p>Happy wedding Rara & Riko! Lancar dan sukses acaranya ya. Semoga menjadi keluarga yang senantiasa bahagia selamanya!</p>
           </div>
         </div>
       </div>
@@ -557,23 +695,24 @@
 
     <!-- Footer -->
     <footer>
-      <h5>Justin &amp; Sisca</h5>
-      <p>&copy; 2026 KedaiKoding. All Rights Reserved.</p>
+      <h5>Riko &amp; Rara</h5>
+      <p>&copy; 2026 Riko &amp; Syeirach Wedding. All Rights Reserved.</p>
+      <p style="font-size: 0.8rem; color: var(--matcha-light); margin-top: 4px;">Made with ♥ by KedaiKoding</p>
     </footer>
 
     <script>
       // Ambil nama dari URL parameter ?to=Nama+Tamu
       const queryParams = new URLSearchParams(window.location.search);
-      const guest = queryParams.get('to');
+      const guest = queryParams.get("to");
       if (guest) {
-        document.getElementById('targetGuest').innerText = guest;
+        document.getElementById("targetGuest").innerText = guest;
       }
 
       // Membuka Sampul Undangan & Menjalankan Musik
       function unlockEnvelope() {
-        document.getElementById('envelopeGate').classList.add('fade-out');
+        document.getElementById("envelopeGate").classList.add("fade-out");
         const bgAudio = document.getElementById("bgMusic");
-        bgAudio.play();
+        bgAudio.play().catch((err) => console.log("Autoplay dicegah browser:", err));
         document.getElementById("musicIcon").className = "fa-solid fa-compact-disc fa-spin";
       }
 
@@ -591,6 +730,20 @@
         }
       }
 
+      // Animasi Slide Masuk Halus (Intersection Observer)
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      reveals.forEach((el) => observer.observe(el));
+
       // Fungsi Salin Rekening
       function salinNomor(id) {
         const textToCopy = document.getElementById(id).innerText;
@@ -602,7 +755,7 @@
       // Form Submit & Menambah Doa ke Wishing Wall secara Dinamis
       document.getElementById("rsvpForm").addEventListener("submit", function (e) {
         e.preventDefault();
-        
+
         const nameInput = document.getElementById("nameInput").value;
         const attendanceSelect = document.getElementById("attendanceSelect").value;
         const wishText = document.getElementById("wishText").value;
@@ -616,12 +769,9 @@
           <p>${wishText}</p>
         `;
 
-        // Masukkan doa baru di bagian teratas list
         wishWall.insertBefore(newWish, wishWall.firstChild);
-
-        // Reset Formulir
         document.getElementById("rsvpForm").reset();
-        alert("Doa restu Anda telah dipublikasikan di dinding ucapan!");
+        alert("Doa restu Anda telah berhasil dikirimkan!");
       });
     </script>
   </body>
